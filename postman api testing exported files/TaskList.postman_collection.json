@@ -1,0 +1,177 @@
+{
+  "info": {
+    "_postman_id": "8b567310-8b95-46c5-8857-9bb3a5812847",
+    "name": "TaskList",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "31443517",
+    "_collection_link": "https://go.postman.co/collection/31443517-8b567310-8b95-46c5-8857-9bb3a5812847?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "tasklists",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/tasklists",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "tasklists"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "post tasklist",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"call list\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/tasklists",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "tasklists"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get one tasklist by one id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3000/tasklists/6a85e9c962857ed964d208c6",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "tasklists",
+            "6a85e9c962857ed964d208c6"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "put update",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Used put on this list\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/tasklists/6a85e9c962857ed964d208c6",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "tasklists",
+            "6a85e9c962857ed964d208c6"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "patch update",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"used patch list\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/tasklists/6a85e9c962857ed964d208c6",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "tasklists",
+            "6a85e9c962857ed964d208c6"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete one update",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3000/tasklists/6a8745fdfde5c554e70169ac",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "tasklists",
+            "6a8745fdfde5c554e70169ac"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

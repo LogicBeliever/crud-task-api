@@ -160,10 +160,87 @@ app.delete('/tasklists/:tasklistId/',(req,  res) => {
             });
 });
 
+/*
 
+|++++++++++++++++++++++++++++++++++++++++++++++
+|    
+|   CRUD OPRATION FOR TASK MODEL
+|    A TASK SHOULE BELONG TO A TASKLIST
+|
+|++++++++++++++++++++++++++++++++++++++++++++++
+
+*/
+// for one task
+// http://localhost:3000/tasklists/:tasklistId/tasks/:taskId
+app.get('/tasklists/:tasklistId/tasks',( req, res)  => {
+    Task.find({ _taskListId: req.params.tasklistId })
+            .then((tasks) => {
+                res.status(200).send(tasks)
+            })
+            .catch((error) => {
+                console.log(error);
+                res.status(500);
+            });
+});
+
+
+// create a task for a tasklist
+app.post(
+    '/tasklists/:tasklistId/tasks', (req, res) => {
+        console.log(req.body);
+
+        let taskObj ={ 'title': req.body.title, '_taskListId': req.params.tasklistId};
+        Task(taskObj).save()
+            .then((task) => {
+                res.status(201).send(task);
+            })
+            .catch((error) => {
+                console.log(error);
+                res.status(500);
+            });
+});
+
+
+// get 1 task inside 1 tasklist
+app.get('/tasklists/:tasklistId/tasks/:taskId',( req, res)  => {
+    Task.findOne({ _taskListId: req.params.tasklistId, _id: req.params.taskId })
+            .then((task) => {
+                res.status(200).send(task)
+            })
+            .catch((error) => {
+                console.log(error);
+                res.status(500);
+            });
+});
+
+
+// update 1 task inside 1 tasklist
+app.patch('/tasklists/:tasklistId/tasks/:taskId',(req,  res) => {
+    Task.findOneAndUpdate({_taskListId: req.params.tasklistId, _id: req.params.taskId}, 
+    { $set: req.body})
+            .then((task) => {
+                res.status(200).send(task)
+            })
+            .catch((error) => {
+                console.log(error);
+                res.status(500);
+            });
+});
+
+// delete 1 task inside 1 tasklist
+app.delete('/tasklists/:tasklistId/tasks/:taskId',(req,  res) => {
+    Task.findOneAndDelete({_taskListId: req.params.tasklistId, _id: req.params.taskId}, 
+    { $set: req.body})
+            .then((task) => {
+                res.status(200).send(task)
+            })
+            .catch((error) => {
+                console.log(error);
+                res.status(500);
+            });
+});
 
 // app.listen(3000, function(){console.log("Server started on port 3000");});
-
 app.listen(3000, () =>{
     console.log("Server running on port no 3000 ");
 });
